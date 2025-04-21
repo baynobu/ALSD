@@ -3,7 +3,7 @@ import java.util.Scanner;
 public class SistemAkademikMain {
     public static void main(String[] args) {
         Scanner sc = new Scanner(System.in);
-        SistemAkademikFunction manager = new SistemAkademikFunction();
+        SistemAkademikFunction menu = new SistemAkademikFunction();
 
         int pilihan;
         do {
@@ -20,21 +20,21 @@ public class SistemAkademikMain {
 
             switch (pilihan) {
                 case 1:
-                    manager.tampilkanMahasiswa();
+                    menu.tampilkanMahasiswa();
                     break;
                 case 2:
-                    manager.tampilkanMataKuliah();
+                    menu.tampilkanMataKuliah();
                     break;
                 case 3:
-                    manager.tampilkanPenilaian();
+                    menu.tampilkanPenilaian();
                     break;
                 case 4:
-                    manager.urutkanMahasiswaBerdasarkanNilai();
+                    menu.urutkanMahasiswaBerdasarkanNilai();
                     break;
                 case 5:
                     System.out.print("Masukkan NIM yang dicari: ");
                     String nim = sc.nextLine();
-                    manager.cariMahasiswaBerdasarkanNIM(nim);
+                    menu.cariMahasiswaBerdasarkanNIM(nim);
                     break;
                 case 0:
                     System.out.println("Terima kasih!");

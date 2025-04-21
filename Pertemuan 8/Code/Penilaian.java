@@ -3,6 +3,7 @@ public class Penilaian {
     MataKuliah mataKuliah;
     double nilaiTugas, nilaiUTS, nilaiUAS;
 
+    // constractor
     Penilaian(Mahasiswa m, MataKuliah mk, double tugas, double uts, double uas) {
         mahasiswa = m;
         mataKuliah = mk;
@@ -11,10 +12,12 @@ public class Penilaian {
         nilaiUAS = uas;
     }
 
+    
     double hitungNilaiAkhir() {
         return (nilaiTugas * 0.3) + (nilaiUTS * 0.3) + (nilaiUAS * 0.4);
     }
 
+    // method
     void tampilNilai() {
         System.out.println("Nama Mahasiswa : " + mahasiswa.nama);
         System.out.println("Mata Kuliah    : " + mataKuliah.nama);

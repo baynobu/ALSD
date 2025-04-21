@@ -1,4 +1,5 @@
 public class SistemAkademikFunction{
+    // input data (hanif)
     Mahasiswa[] mahasiswa = {
         new Mahasiswa("22001", "Ali Rahman", "Struktur data"),
         new Mahasiswa("22001", "Ali Rahman", "Basis Data"),
@@ -22,6 +23,7 @@ public class SistemAkademikFunction{
     };
     
 
+    // buat function (ilham)
     void tampilkanMahasiswa() {
         System.out.println("\nDaftar Mahasiswa:");
         for (Mahasiswa m : mahasiswa) {
@@ -46,6 +48,7 @@ public class SistemAkademikFunction{
         }
     }
 
+    // sorting (hanif)
     void urutkanMahasiswaBerdasarkanNilai() {
         for (int i = 0; i < penilaian.length - 1; i++) {
             for (int j = 0; j < penilaian.length - i - 1; j++) {
@@ -61,6 +64,7 @@ public class SistemAkademikFunction{
         tampilkanPenilaian();
     }
 
+    // searching (ilham)
     void cariMahasiswaBerdasarkanNIM(String nim) {
         boolean ditemukan = false;
         for (Mahasiswa m : mahasiswa) {
