@@ -5,10 +5,11 @@ import java.util.Scanner;
 public class Main {
     public static void main(String[] args) {
         Scanner sc = new Scanner(System.in);
-        LinkedListAntrian antrian = new LinkedListAntrian();
+        AntrianKendaraan antrian = new AntrianKendaraan();
         QueueTransaksi riwayat = new QueueTransaksi();
 
-        while (true) {
+        int pilihan;
+        do {
             System.out.println("\n--- Menu SPBU ---");
             System.out.println("1. Tambah Antrian Kendaraan");
             System.out.println("2. Tampilkan Antrian");
@@ -17,9 +18,10 @@ public class Main {
             System.out.println("5. Tampilkan Riwayat Transaksi");
             System.out.println("0. Keluar");
             System.out.print("Pilih: ");
-            int pilih = sc.nextInt(); sc.nextLine();
+            pilihan = sc.nextInt();
+            sc.nextLine();
 
-            switch (pilih) {
+            switch (pilihan) {
                 case 1:
                     System.out.print("Masukkan Plat Nomor: ");
                     String plat = sc.nextLine();
@@ -27,44 +29,41 @@ public class Main {
                     String tipe = sc.nextLine();
                     System.out.print("Masukkan Merk: ");
                     String merk = sc.nextLine();
-                    Kendaraan k = new Kendaraan(plat, tipe, merk);
-                    antrian.tambahAntrian(k);
-                    System.out.println(">> Kendaraan masuk ke dalam antrian.");
+                    antrian.tambahAntrian(new Kendaraan(plat, tipe, merk));
                     break;
                 case 2:
                     antrian.tampilkanAntrian();
                     break;
                 case 3:
-                    System.out.println(">> Jumlah kendaraan dalam antrian: " + antrian.hitungAntrian());
+                    System.out.println(">> Jumlah kendaraan dalam antrian: " + antrian.jumlahAntrian());
                     break;
                 case 4:
-                    Kendaraan kendaraanDilayani = antrian.layaniAntrian();
-                    if (kendaraanDilayani == null) {
-                        System.out.println("Antrian kosong.");
-                    } else {
-                        System.out.println("Petugas melayani " + kendaraanDilayani.platNomor);
+                    Kendaraan dilayani = antrian.layaniKendaraan();
+                    if (dilayani != null) {
+                        System.out.println("Petugas melayani " + dilayani.platNomor);
                         System.out.print("Masukkan Jenis BBM: ");
-                        String namaBBM = sc.nextLine();
+                        String jenisBBM = sc.nextLine();
                         System.out.print("Masukkan Harga per liter: ");
                         double harga = sc.nextDouble();
                         System.out.print("Masukkan Jumlah liter: ");
-                        double liter = sc.nextDouble(); sc.nextLine();
+                        double liter = sc.nextDouble();
+                        sc.nextLine();
 
-                        BBM bbm = new BBM(namaBBM, harga);
-                        TransaksiPengisian t = new TransaksiPengisian(kendaraanDilayani, bbm, liter);
-                        riwayat.tambahTransaksi(t);
-                        System.out.println(">> Transaksi berhasil dicatat.");
+                        BBM bbm = new BBM(jenisBBM, harga);
+                        TransaksiPengisian transaksi = new TransaksiPengisian(dilayani, bbm, liter);
+                        riwayat.tambahTransaksi(transaksi);
                     }
                     break;
                 case 5:
                     riwayat.tampilkanRiwayat();
                     break;
                 case 0:
-                    System.out.println("Keluar dari program.");
-                    return;
+                    System.out.println("Terima Kasih");
+                    break;
                 default:
-                    System.out.println("Pilihan tidak valid.");
+                    System.out.println("Pilihan tidak valid!");
             }
-        }
+        } while (pilihan != 0);
+
     }
 }

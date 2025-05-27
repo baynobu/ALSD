@@ -10,11 +10,11 @@ public class TransaksiPengisian {
         this.kendaraan = kendaraan;
         this.bbm = bbm;
         this.liter = liter;
-        this.totalBayar = liter * bbm.hargaPerLiter;
+        this.totalBayar = bbm.hargaPerLiter * liter;
     }
 
     public void tampilkanTransaksi() {
         System.out.println(kendaraan.platNomor + ": Rp " + totalBayar);
     }
-}
 
+}

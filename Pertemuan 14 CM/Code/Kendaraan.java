@@ -1,4 +1,5 @@
 package Code;
+
 public class Kendaraan {
     String platNomor;
     String tipe;

@@ -1,12 +1,11 @@
 package Code;
 
 public class Node {
-    Kendaraan kendaraan;
+    Kendaraan data;
     Node next;
 
-    public Node(Kendaraan kendaraan) {
-        this.kendaraan = kendaraan;
+    public Node(Kendaraan data) {
+        this.data = data;
         this.next = null;
     }
 }
-
